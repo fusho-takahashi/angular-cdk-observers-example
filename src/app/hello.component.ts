@@ -20,6 +20,8 @@ export class HelloComponent {
     const isContain3 = valueStr.includes('3');
     const isMultipleOf3 = valueNum % 3 === 0;
 
+    // cdkObserverContent はNgZone 外で実行されるので、
+    // 描画に反映するには手動で変更検知をトリガーする必要がある。
     this.ngZone.run(() => {
       this.isAho = isContain3 || isMultipleOf3;
     });
